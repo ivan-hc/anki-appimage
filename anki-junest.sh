@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-APP=anki-bin
-BIN="anki" #CHANGE THIS IF THE NAME OF THE BINARY IS DIFFERENT FROM "$APP" (for example, the binary of "obs-studio" is "obs")
-DEPENDENCES="$(curl -Ls "https://raw.githubusercontent.com/archlinux/aur/anki-bin/.SRCINFO" | grep "depends =" | grep -v makedepends | awk '{print $3}' | sed 's/://g' | sort -u | xargs)"; [ -z "$DEPENDENCES" ] && exit 0; DEPENDENCES=$( echo "$DEPENDENCES mesa python python-pip-system-certs qt6-multimedia qt6-shadertools qt6-wayland qt6-webengine vulkan-mesa-layers xdg-utils" | tr ' ' '\n' | sort -u | xargs)
+APP=anki
+BIN="$APP" #CHANGE THIS IF THE NAME OF THE BINARY IS DIFFERENT FROM "$APP" (for example, the binary of "obs-studio" is "obs")
+DEPENDENCES="$(curl -Ls "https://gitlab.archlinux.org/archlinux/packaging/packages/anki/-/raw/main/.SRCINFO" | grep "depends =" | grep -v makedepends | awk '{print $3}' | sed 's/://g' | sort -u | xargs)"; [ -z "$DEPENDENCES" ] && exit 0; DEPENDENCES=$( echo "$DEPENDENCES mesa python python-pip-system-certs qt6-multimedia qt6-shadertools qt6-wayland qt6-webengine vulkan-mesa-layers xdg-utils" | tr ' ' '\n' | sort -u | xargs)
 BASICSTUFF="binutils debugedit gzip"
 COMPILERS="base-devel"
 
